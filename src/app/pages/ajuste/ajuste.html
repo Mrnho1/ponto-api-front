@@ -1,0 +1,36 @@
+<div class="max-w-xl mx-auto">
+
+  <h2 class="text-2xl font-bold mb-4">
+    Ajuste Manual
+  </h2>
+
+  <div class="bg-white p-6 rounded-xl shadow">
+
+    <input
+      [(ngModel)]="pontoId"
+      placeholder="ID do ponto"
+      class="w-full mb-3 p-2 border rounded"
+    />
+
+    <input
+      [(ngModel)]="data"
+      type="datetime-local"
+      class="w-full mb-3 p-2 border rounded"
+    />
+
+    <input
+      [(ngModel)]="motivo"
+      placeholder="Motivo"
+      class="w-full mb-4 p-2 border rounded"
+    />
+
+    <button
+      (click)="ajustar()"
+      class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+    >
+      Ajustar
+    </button>
+
+  </div>
+
+</div>
