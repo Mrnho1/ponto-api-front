@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { Ajuste } from '../../services/ajusteService';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Navbar } from '../../components/navbar/navbar';
 
 @Component({
   selector: 'app-ajuste',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, Navbar],
   templateUrl: './ajuste.html',
   styleUrl: './ajuste.css',
 })

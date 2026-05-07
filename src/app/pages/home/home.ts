@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Ponto } from '../../services/pontoService';
 import { CommonModule } from '@angular/common';
+import { Navbar } from '../../components/navbar/navbar';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, Navbar],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

@@ -1,0 +1,38 @@
+<nav class="bg-gray-900 text-white shadow-lg">
+
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <h1 class="text-xl font-bold">
+      Ponto System
+    </h1>
+
+    <div class="flex gap-4 items-center">
+
+      <a
+        routerLink="/home"
+        routerLinkActive="text-green-400"
+        class="hover:text-green-400 transition"
+      >
+        Home
+      </a>
+
+      <a
+        routerLink="/ajuste"
+        routerLinkActive="text-green-400"
+        class="hover:text-green-400 transition"
+      >
+        Ajustes
+      </a>
+
+      <button
+        (click)="logout()"
+        class="bg-red-500 hover:bg-red-600 px-4 py-1 rounded transition"
+      >
+        Sair
+      </button>
+
+    </div>
+
+  </div>
+
+</nav>
