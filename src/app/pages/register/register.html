@@ -1,0 +1,28 @@
+<div class="flex items-center justify-center min-h-screen bg-gray-100">
+
+  <div class="bg-white p-8 rounded-2xl shadow-md w-80">
+
+    <h2 class="text-2xl font-bold mb-6 text-center">
+      Cadastro
+    </h2>
+
+    <input [(ngModel)]="username" placeholder="Usuário"
+      class="w-full mb-4 p-2 border rounded" />
+
+    <input [(ngModel)]="password" type="password" placeholder="Senha"
+      class="w-full mb-4 p-2 border rounded" />
+
+    <select [(ngModel)]="role"
+      class="w-full mb-4 p-2 border rounded">
+      <option value="USER">Usuário</option>
+      <option value="ADMIN">Admin</option>
+    </select>
+
+    <button (click)="register()"
+      class="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700">
+      Cadastrar
+    </button>
+
+  </div>
+
+</div>

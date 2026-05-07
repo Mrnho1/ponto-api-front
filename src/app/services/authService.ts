@@ -32,4 +32,17 @@ export class Auth {
   isLogado(): boolean {
     return !!localStorage.getItem('token');
   }
+
+  register(username: string, password: string, role: string) {
+  return this.http.post(`${this.API}/auth/register`, null, {
+    params: {
+      username,
+      password,
+      role
+    }
+  });
 }
+
+}
+
+  
