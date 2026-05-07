@@ -4,6 +4,7 @@ import { Home } from './pages/home/home';
 import { AjusteS } from './pages/ajuste/ajuste';
 import { Register } from './pages/register/register';
 import { authGuard } from './guards/auth-guard';
+import { Historico } from './pages/historico/historico';
 
 
 export const routes: Routes = [
@@ -20,6 +21,11 @@ export const routes: Routes = [
   {
     path: 'ajuste',
     component: AjusteS,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'historico',
+    component: Historico,
     canActivate: [authGuard]
   }
 ];

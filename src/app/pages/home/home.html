@@ -1,37 +1,53 @@
 <app-navbar></app-navbar>
 
-<div
-  class="p-10 transition-all duration-300"
-  [class.ml-64]="true"
->
+<div class="ml-64 p-10 bg-gray-100 min-h-screen">
 
-  <h2 class="text-3xl font-bold mb-6">
-    Registro de Ponto
-  </h2>
+  <h1 class="text-3xl font-bold mb-8">
+    Dashboard
+  </h1>
 
+  <!-- CARDS -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+
+    <div class="bg-white p-6 rounded-2xl shadow">
+      <h2 class="text-gray-500 mb-2">
+        Banco de Horas
+      </h2>
+
+      <p class="text-3xl font-bold">
+        {{ bancoHoras }}
+      </p>
+    </div>
+
+    <div class="bg-white p-6 rounded-2xl shadow">
+      <h2 class="text-gray-500 mb-2">
+        Pontos Hoje
+      </h2>
+
+      <p class="text-3xl font-bold">
+        {{ pontos.length }}
+      </p>
+    </div>
+
+    <div class="bg-white p-6 rounded-2xl shadow">
+      <h2 class="text-gray-500 mb-2">
+        Último Registro
+      </h2>
+
+      <p class="text-xl font-bold">
+        {{ ultimoPonto?.tipo || 'Nenhum' }}
+      </p>
+    </div>
+
+  </div>
+
+  <!-- BOTÃO -->
   <button
     (click)="baterPonto()"
-    class="bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 mb-8"
+    class="bg-green-600 text-white px-6 py-3 rounded-2xl hover:bg-green-700 mb-8 shadow"
   >
     {{ getProximoTipo() }}
   </button>
 
-  <div class="bg-white rounded-2xl shadow p-6">
-
-    <h3 class="font-bold text-xl mb-4">
-      Histórico
-    </h3>
-
-    <ul>
-      <li
-        *ngFor="let p of pontos"
-        class="border-b py-3 flex justify-between"
-      >
-        <span>{{ p.tipo }}</span>
-        <span>{{ p.data_hora | date:'short' }}</span>
-      </li>
-    </ul>
-
-  </div>
 
 </div>

@@ -1,71 +1,90 @@
-<div
-  class="h-screen bg-gray-900 text-white fixed left-0 top-0 shadow-xl transition-all duration-300"
-  [class.w-64]="aberto"
-  [class.w-20]="!aberto"
->
+<div class="h-screen bg-gray-900 text-white fixed left-0 top-0 shadow-xl transition-all duration-300"
+    [class.w-64]="aberto" [class.w-20]="!aberto">
 
-  <!-- TOPO -->
-  <div class="p-4 border-b border-gray-700 flex items-center justify-between">
+    <!-- TOPO -->
+    <div class="p-4 border-b border-gray-700 flex items-center justify-between">
 
-    <h1
-      *ngIf="aberto"
-      class="text-xl font-bold"
-    >
-      Ponto System
-    </h1>
+        <h1 *ngIf="aberto" class="text-xl font-bold">
+            Ponto System
+        </h1>
 
-    <button
-      (click)="toggleSidebar()"
-      class="p-2 hover:bg-gray-800 rounded-lg transition"
-    >
-      ☰
-    </button>
+        <button (click)="toggleSidebar()" class="p-2 hover:bg-gray-800 rounded-lg transition">
+            ☰
+        </button>
 
-  </div>
+    </div>
 
-  <!-- MENU -->
-  <nav class="flex flex-col p-4 gap-2">
+    <!-- MENU -->
+    <!-- MENU -->
+<nav class="flex flex-col p-4 gap-2">
 
+    <!-- DASHBOARD -->
     <a
-      routerLink="/home"
-      routerLinkActive="bg-green-600"
-      class="p-3 rounded-lg hover:bg-gray-800 transition flex items-center gap-3"
+        routerLink="/home"
+        routerLinkActive="bg-green-600"
+        class="p-3 rounded-lg hover:bg-gray-800 transition flex items-center gap-3"
     >
-      <span>🏠</span>
+        <span>🏠</span>
 
-      <span *ngIf="aberto">
-        Home
-      </span>
+        <span *ngIf="aberto">
+            Dashboard
+        </span>
     </a>
 
+    <!-- HISTORICO -->
     <a
-      routerLink="/ajuste"
-      routerLinkActive="bg-green-600"
-      class="p-3 rounded-lg hover:bg-gray-800 transition flex items-center gap-3"
+        routerLink="/historico"
+        routerLinkActive="bg-green-600"
+        class="p-3 rounded-lg hover:bg-gray-800 transition flex items-center gap-3"
     >
-      <span>⚙️</span>
+        <span>📋</span>
 
-      <span *ngIf="aberto">
-        Ajustes
-      </span>
+        <span *ngIf="aberto">
+            Histórico
+        </span>
     </a>
 
-  </nav>
-
-  <!-- FOOTER -->
-  <div class="absolute bottom-0 w-full p-4 border-t border-gray-700">
-
-    <button
-      (click)="logout()"
-      class="w-full bg-red-500 hover:bg-red-600 p-3 rounded-lg transition flex items-center justify-center gap-2"
+    <!-- BANCO HORAS -->
+    <a
+        routerLink="/banco"
+        routerLinkActive="bg-green-600"
+        class="p-3 rounded-lg hover:bg-gray-800 transition flex items-center gap-3"
     >
-      <span>🚪</span>
+        <span>⏰</span>
 
-      <span *ngIf="aberto">
-        Sair
-      </span>
-    </button>
+        <span *ngIf="aberto">
+            Banco Horas
+        </span>
+    </a>
 
-  </div>
+    <!-- AJUSTES -->
+    <a
+        *ngIf="isAdmin"
+        routerLink="/ajuste"
+        routerLinkActive="bg-green-600"
+        class="p-3 rounded-lg hover:bg-gray-800 transition flex items-center gap-3"
+    >
+        <span>⚙️</span>
+
+        <span *ngIf="aberto">
+            Ajustes
+        </span>
+    </a>
+
+</nav>
+
+    <!-- FOOTER -->
+    <div class="absolute bottom-0 w-full p-4 border-t border-gray-700">
+
+        <button (click)="logout()"
+            class="w-full bg-red-500 hover:bg-red-600 p-3 rounded-lg transition flex items-center justify-center gap-2">
+            <span>🚪</span>
+
+            <span *ngIf="aberto">
+                Sair
+            </span>
+        </button>
+
+    </div>
 
 </div>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -41,6 +42,20 @@ export class Auth {
       role
     }
   });
+}
+
+  getUser() {
+  const token = localStorage.getItem('token');
+
+  if (!token) return null;
+
+  return jwtDecode<any>(token);
+}
+
+isAdmin(): boolean {
+  const user = this.getUser();
+
+  return user?.role === 'ADMIN';
 }
 
 }

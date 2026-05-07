@@ -11,6 +11,8 @@ import { Navbar } from '../../components/navbar/navbar';
 })
 export class Home implements OnInit{
   pontos: any[] = [];
+  bancoHoras = '00:00:00';
+  ultimoPonto: any = null;
 
   constructor(private pontoService: Ponto) {}
 
@@ -19,10 +21,18 @@ export class Home implements OnInit{
   }
 
   carregar() {
-    this.pontoService.listar().subscribe((res: any) => {
-      this.pontos = res;
-    });
-  }
+  this.pontoService.listar().subscribe((res: any) => {
+    this.pontos = res;
+
+    if (this.pontos.length > 0) {
+      this.ultimoPonto = this.pontos[this.pontos.length - 1];
+    }
+  });
+
+  this.pontoService.banco().subscribe((res: any) => {
+    this.bancoHoras = res.banco_horas;
+  });
+}
 
   baterPonto() {
   const tipo = this.getProximoTipo();

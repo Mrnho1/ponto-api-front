@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+
+<div class="ml-64 p-10 bg-gray-100 min-h-screen">
+
+  <h1 class="text-3xl font-bold mb-8">
+    Histórico
+  </h1>
+
+  <div class="bg-white rounded-2xl shadow p-6">
+
+    <ul>
+
+      <li
+        *ngFor="let p of pontos"
+        class="border-b py-4 flex justify-between"
+      >
+        <span class="font-medium">
+          {{ p.tipo }}
+        </span>
+
+        <span>
+          {{ p.data_hora | date:'short' }}
+        </span>
+      </li>
+
+    </ul>
+
+  </div>
+
+</div>

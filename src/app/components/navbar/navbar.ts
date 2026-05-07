@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
+import { Auth } from '../../services/authService';
 
 @Component({
   selector: 'app-navbar',
@@ -11,8 +12,14 @@ import { Router, RouterModule } from '@angular/router';
 export class Navbar {
 
   aberto = true;
+  isAdmin = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private auth: Auth
+  ) {
+    this.isAdmin = this.auth.isAdmin();
+  }
 
   toggleSidebar() {
     this.aberto = !this.aberto;
