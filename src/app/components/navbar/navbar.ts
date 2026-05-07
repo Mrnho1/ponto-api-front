@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { Auth } from '../../services/authService';
+import { LayoutService } from '../../services/layoutService';
 
 @Component({
   selector: 'app-navbar',
@@ -12,18 +12,23 @@ import { Auth } from '../../services/authService';
 export class Navbar {
 
   aberto = true;
-  isAdmin = false;
 
   constructor(
-    private router: Router,
-    private auth: Auth
-  ) {
-    this.isAdmin = this.auth.isAdmin();
-  }
+  private router: Router,
+  private layoutService: LayoutService
+) {}
 
   toggleSidebar() {
     this.aberto = !this.aberto;
   }
+
+  abrirDashboard() {
+  this.layoutService.mudarTela('dashboard');
+}
+
+abrirHistorico() {
+  this.layoutService.mudarTela('historico');
+}
 
   logout() {
     localStorage.removeItem('token');

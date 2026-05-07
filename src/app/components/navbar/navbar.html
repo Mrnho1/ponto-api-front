@@ -1,90 +1,66 @@
-<div class="h-screen bg-gray-900 text-white fixed left-0 top-0 shadow-xl transition-all duration-300"
-    [class.w-64]="aberto" [class.w-20]="!aberto">
+<div
+  class="h-screen bg-gray-900 text-white fixed left-0 top-0 shadow-xl transition-all duration-300"
+  [class.w-64]="aberto"
+  [class.w-20]="!aberto"
+>
 
-    <!-- TOPO -->
-    <div class="p-4 border-b border-gray-700 flex items-center justify-between">
+  <!-- TOPO -->
+  <div class="p-4 border-b border-gray-700 flex items-center justify-between">
 
-        <h1 *ngIf="aberto" class="text-xl font-bold">
-            Ponto System
-        </h1>
+    <h1 *ngIf="aberto" class="text-xl font-bold">
+      Ponto System
+    </h1>
 
-        <button (click)="toggleSidebar()" class="p-2 hover:bg-gray-800 rounded-lg transition">
-            ☰
-        </button>
-
-    </div>
-
-    <!-- MENU -->
-    <!-- MENU -->
-<nav class="flex flex-col p-4 gap-2">
-
-    <!-- DASHBOARD -->
-    <a
-        routerLink="/home"
-        routerLinkActive="bg-green-600"
-        class="p-3 rounded-lg hover:bg-gray-800 transition flex items-center gap-3"
+    <button
+      (click)="toggleSidebar()"
+      class="p-2 hover:bg-gray-800 rounded-lg transition"
     >
-        <span>🏠</span>
+      ☰
+    </button>
 
-        <span *ngIf="aberto">
-            Dashboard
-        </span>
-    </a>
+  </div>
 
-    <!-- HISTORICO -->
-    <a
-        routerLink="/historico"
-        routerLinkActive="bg-green-600"
-        class="p-3 rounded-lg hover:bg-gray-800 transition flex items-center gap-3"
+  <!-- MENU -->
+  <nav class="flex flex-col p-4 gap-2">
+
+    <button
+      (click)="abrirDashboard()"
+      class="p-3 rounded-lg hover:bg-gray-800 transition flex items-center gap-3 text-left"
     >
-        <span>📋</span>
+      <span>🏠</span>
 
-        <span *ngIf="aberto">
-            Histórico
-        </span>
-    </a>
+      <span *ngIf="aberto">
+        Dashboard
+      </span>
+    </button>
 
-    <!-- BANCO HORAS -->
-    <a
-        routerLink="/banco"
-        routerLinkActive="bg-green-600"
-        class="p-3 rounded-lg hover:bg-gray-800 transition flex items-center gap-3"
+    <button
+      (click)="abrirHistorico()"
+      class="p-3 rounded-lg hover:bg-gray-800 transition flex items-center gap-3 text-left"
     >
-        <span>⏰</span>
+      <span>📋</span>
 
-        <span *ngIf="aberto">
-            Banco Horas
-        </span>
-    </a>
+      <span *ngIf="aberto">
+        Histórico
+      </span>
+    </button>
 
-    <!-- AJUSTES -->
-    <a
-        *ngIf="isAdmin"
-        routerLink="/ajuste"
-        routerLinkActive="bg-green-600"
-        class="p-3 rounded-lg hover:bg-gray-800 transition flex items-center gap-3"
+  </nav>
+
+  <!-- FOOTER -->
+  <div class="absolute bottom-0 w-full p-4 border-t border-gray-700">
+
+    <button
+      (click)="logout()"
+      class="w-full bg-red-500 hover:bg-red-600 p-3 rounded-lg transition flex items-center justify-center gap-2"
     >
-        <span>⚙️</span>
+      <span>🚪</span>
 
-        <span *ngIf="aberto">
-            Ajustes
-        </span>
-    </a>
+      <span *ngIf="aberto">
+        Sair
+      </span>
+    </button>
 
-</nav>
-
-    <!-- FOOTER -->
-    <div class="absolute bottom-0 w-full p-4 border-t border-gray-700">
-
-        <button (click)="logout()"
-            class="w-full bg-red-500 hover:bg-red-600 p-3 rounded-lg transition flex items-center justify-center gap-2">
-            <span>🚪</span>
-
-            <span *ngIf="aberto">
-                Sair
-            </span>
-        </button>
-
-    </div>
+  </div>
 
 </div>

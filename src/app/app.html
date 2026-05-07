@@ -1,4 +1,12 @@
-<!-- CONTEÚDO -->
-<div class="p-6">
+<app-navbar
+  *ngIf="mostrarNavbar()"
+></app-navbar>
+
+<div
+  class="bg-gray-100 min-h-screen transition-all duration-300"
+  [class.ml-64]="mostrarNavbar()"
+>
+
   <router-outlet></router-outlet>
+
 </div>

@@ -6,7 +6,7 @@ import { Navbar } from '../../components/navbar/navbar';
 
 @Component({
   selector: 'app-ajuste',
-  imports: [CommonModule, FormsModule, Navbar],
+  imports: [CommonModule, FormsModule],
   templateUrl: './ajuste.html',
   styleUrl: './ajuste.css',
 })

@@ -5,7 +5,7 @@ import { Ponto } from '../../services/pontoService';
 
 @Component({
   selector: 'app-historico',
-  imports: [CommonModule, Navbar],
+  imports: [CommonModule],
   templateUrl: './historico.html',
   styleUrl: './historico.css',
 })
