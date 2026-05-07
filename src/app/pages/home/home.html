@@ -1,26 +1,28 @@
 <app-navbar></app-navbar>
 
-<div class="max-w-2xl mx-auto">
+<div class="ml-64 p-10">
 
-  <h2 class="text-2xl font-bold mb-4">
+  <h2 class="text-3xl font-bold mb-6">
     Registro de Ponto
   </h2>
 
   <button
-  (click)="baterPonto()"
-  class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 mb-6"
->
-  {{ getProximoTipo() }}
-</button>
+    (click)="baterPonto()"
+    class="bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 mb-8"
+  >
+    {{ getProximoTipo() }}
+  </button>
 
-  <div class="bg-white rounded-xl shadow p-4">
+  <div class="bg-white rounded-2xl shadow p-6">
 
-    <h3 class="font-bold mb-2">Histórico</h3>
+    <h3 class="font-bold text-xl mb-4">
+      Histórico
+    </h3>
 
     <ul>
       <li
         *ngFor="let p of pontos"
-        class="border-b py-2 flex justify-between"
+        class="border-b py-3 flex justify-between"
       >
         <span>{{ p.tipo }}</span>
         <span>{{ p.data_hora | date:'short' }}</span>

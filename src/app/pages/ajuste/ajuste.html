@@ -1,34 +1,34 @@
 <app-navbar></app-navbar>
 
-<div class="max-w-xl mx-auto">
+<div class="ml-64 p-10">
 
-  <h2 class="text-2xl font-bold mb-4">
+  <h2 class="text-3xl font-bold mb-6">
     Ajuste Manual
   </h2>
 
-  <div class="bg-white p-6 rounded-xl shadow">
+  <div class="bg-white p-6 rounded-2xl shadow max-w-xl">
 
     <input
       [(ngModel)]="pontoId"
       placeholder="ID do ponto"
-      class="w-full mb-3 p-2 border rounded"
+      class="w-full mb-4 p-3 border rounded-lg"
     />
 
     <input
       [(ngModel)]="data"
       type="datetime-local"
-      class="w-full mb-3 p-2 border rounded"
+      class="w-full mb-4 p-3 border rounded-lg"
     />
 
     <input
       [(ngModel)]="motivo"
       placeholder="Motivo"
-      class="w-full mb-4 p-2 border rounded"
+      class="w-full mb-6 p-3 border rounded-lg"
     />
 
     <button
       (click)="ajustar()"
-      class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+      class="bg-blue-600 text-white px-5 py-3 rounded-xl hover:bg-blue-700"
     >
       Ajustar
     </button>
