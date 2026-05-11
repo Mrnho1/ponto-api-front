@@ -1,19 +1,43 @@
 <div
-  class="h-screen bg-gray-900 text-white fixed left-0 top-0 shadow-xl transition-all duration-300"
+  class="h-screen fixed left-0 top-0 bg-gray-900 border-r border-gray-800
+         text-white shadow-2xl transition-all duration-300 flex flex-col z-50"
+
   [class.w-64]="aberto"
   [class.w-20]="!aberto"
 >
 
-  <!-- TOPO -->
-  <div class="p-4 border-b border-gray-700 flex items-center justify-between">
+  <!-- HEADER -->
+  <div class="h-24 border-b border-gray-800 flex items-center justify-between px-5">
 
-    <h1 *ngIf="aberto" class="text-xl font-bold">
-      Ponto System
-    </h1>
+    <div
+      *ngIf="aberto"
+      class="flex items-center gap-3"
+    >
+
+      <div
+        class="w-12 h-12 rounded-2xl bg-blue-600
+               flex items-center justify-center text-2xl shadow-lg"
+      >
+        ⏰
+      </div>
+
+      <div>
+
+        <h1 class="text-xl font-bold leading-none">
+          Ponto
+        </h1>
+
+        <p class="text-gray-400 text-sm mt-1">
+          System
+        </p>
+
+      </div>
+
+    </div>
 
     <button
       (click)="toggleSidebar()"
-      class="p-2 hover:bg-gray-800 rounded-lg transition"
+      class="w-10 h-10 rounded-xl hover:bg-gray-800 transition flex items-center justify-center"
     >
       ☰
     </button>
@@ -21,44 +45,76 @@
   </div>
 
   <!-- MENU -->
-  <nav class="flex flex-col p-4 gap-2">
+  <nav class="flex-1 p-4 space-y-3">
 
     <button
       (click)="abrirDashboard()"
-      class="p-3 rounded-lg hover:bg-gray-800 transition flex items-center gap-3 text-left"
+      class="w-full flex items-center gap-4 p-4 rounded-2xl
+             hover:bg-gray-800 transition duration-300 group"
     >
-      <span>🏠</span>
 
-      <span *ngIf="aberto">
+      <div
+        class="w-11 h-11 rounded-xl bg-blue-600/20
+               flex items-center justify-center text-xl"
+      >
+        🏠
+      </div>
+
+      <span
+        *ngIf="aberto"
+        class="font-medium text-gray-200 group-hover:text-white"
+      >
         Dashboard
       </span>
+
     </button>
 
     <button
       (click)="abrirHistorico()"
-      class="p-3 rounded-lg hover:bg-gray-800 transition flex items-center gap-3 text-left"
+      class="w-full flex items-center gap-4 p-4 rounded-2xl
+             hover:bg-gray-800 transition duration-300 group"
     >
-      <span>📋</span>
 
-      <span *ngIf="aberto">
+      <div
+        class="w-11 h-11 rounded-xl bg-purple-600/20
+               flex items-center justify-center text-xl"
+      >
+        📋
+      </div>
+
+      <span
+        *ngIf="aberto"
+        class="font-medium text-gray-200 group-hover:text-white"
+      >
         Histórico
       </span>
+
     </button>
 
   </nav>
 
   <!-- FOOTER -->
-  <div class="absolute bottom-0 w-full p-4 border-t border-gray-700">
+  <div class="p-4 border-t border-gray-800">
 
     <button
       (click)="logout()"
-      class="w-full bg-red-500 hover:bg-red-600 p-3 rounded-lg transition flex items-center justify-center gap-2"
+      class="w-full bg-red-600 hover:bg-red-700
+             rounded-2xl p-4 transition duration-300
+             flex items-center justify-center gap-3
+             shadow-lg"
     >
-      <span>🚪</span>
 
-      <span *ngIf="aberto">
+      <span class="text-lg">
+        🚪
+      </span>
+
+      <span
+        *ngIf="aberto"
+        class="font-semibold"
+      >
         Sair
       </span>
+
     </button>
 
   </div>
