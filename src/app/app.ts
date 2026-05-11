@@ -1,21 +1,42 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { Navbar } from './components/navbar/navbar';
 import { CommonModule } from '@angular/common';
+
+import { Navbar } from './components/navbar/navbar';
+import { LayoutService } from './services/layoutService';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, CommonModule],
+  imports: [
+    RouterOutlet,
+    CommonModule,
+    Navbar
+  ],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
-export class App {
-  protected readonly title = signal('ponto-app');
+export class App implements OnInit {
 
-  constructor(public router: Router) {}
+  sidebarAberta = true;
+
+  constructor(
+    private layoutService: LayoutService,
+    private router: Router
+  ) { }
+
+  ngOnInit(): void {
+
+    this.layoutService.sidebar$.subscribe((valor: boolean) => {
+      this.sidebarAberta = valor;
+    });
+
+  }
 
   mostrarNavbar(): boolean {
+
     return this.router.url !== '/' &&
-           this.router.url !== '/register';
+      this.router.url !== '/register';
+
   }
+
 }

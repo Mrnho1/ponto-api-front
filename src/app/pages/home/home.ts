@@ -23,7 +23,9 @@ export class Home implements OnInit {
   private layoutService: LayoutService
 ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
+
+  this.telaAtual = 'dashboard';
 
   this.carregar();
 
@@ -33,9 +35,6 @@ export class Home implements OnInit {
 
 }
 
-  trocarTela(tela: string) {
-    this.telaAtual = tela;
-  }
 
   carregar() {
 

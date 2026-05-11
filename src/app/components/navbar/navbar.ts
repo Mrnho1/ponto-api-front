@@ -13,22 +13,27 @@ export class Navbar {
 
   aberto = true;
 
-  constructor(
-  private router: Router,
-  private layoutService: LayoutService
-) {}
-
-  toggleSidebar() {
-    this.aberto = !this.aberto;
+  ngOnInit() {
+    this.layoutService.sidebar$.subscribe(valor => {
+      this.aberto = valor;
+    });
   }
 
-  abrirDashboard() {
-  this.layoutService.mudarTela('dashboard');
-}
+  constructor(
+    private router: Router,
+    private layoutService: LayoutService
+  ) { }
 
-abrirHistorico() {
-  this.layoutService.mudarTela('historico');
-}
+  toggleSidebar() {
+    this.layoutService.toggleSidebar();
+  }
+  abrirDashboard() {
+    this.layoutService.mudarTela('dashboard');
+  }
+
+  abrirHistorico() {
+    this.layoutService.mudarTela('historico');
+  }
 
   logout() {
     localStorage.removeItem('token');

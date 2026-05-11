@@ -1,27 +1,100 @@
-<div class="flex items-center justify-center min-h-screen bg-gray-100">
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 px-4">
 
-  <div class="bg-white p-8 rounded-2xl shadow-md w-80">
+  <div class="w-full max-w-md bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl shadow-2xl p-10">
 
-    <h2 class="text-2xl font-bold mb-6 text-center">
-      Cadastro
-    </h2>
+    <div class="flex flex-col items-center mb-8">
 
-    <input [(ngModel)]="username" placeholder="Usuário"
-      class="w-full mb-4 p-2 border rounded" />
+      <div class="w-20 h-20 rounded-2xl bg-green-600 flex items-center justify-center text-4xl shadow-lg mb-4">
+        👤
+      </div>
 
-    <input [(ngModel)]="password" type="password" placeholder="Senha"
-      class="w-full mb-4 p-2 border rounded" />
+      <h1 class="text-3xl font-bold text-white">
+        Criar Conta
+      </h1>
 
-    <select [(ngModel)]="role"
-      class="w-full mb-4 p-2 border rounded">
-      <option value="USER">Usuário</option>
-      <option value="ADMIN">Admin</option>
-    </select>
+      <p class="text-gray-300 mt-2 text-sm">
+        Cadastre-se para acessar o sistema
+      </p>
 
-    <button (click)="register()"
-      class="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700">
-      Cadastrar
-    </button>
+    </div>
+
+    <div class="space-y-5">
+
+      <div>
+
+        <label class="text-sm text-gray-300 block mb-2">
+          Usuário
+        </label>
+
+        <input
+          [(ngModel)]="username"
+          placeholder="Digite seu usuário"
+          class="w-full p-4 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+        />
+
+      </div>
+
+      <div>
+
+        <label class="text-sm text-gray-300 block mb-2">
+          Senha
+        </label>
+
+        <input
+          [(ngModel)]="password"
+          type="password"
+          placeholder="Digite sua senha"
+          class="w-full p-4 rounded-xl bg-white/10 border border-gray-600 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+        />
+
+      </div>
+
+      <div>
+
+        <label class="text-sm text-gray-300 block mb-2">
+          Tipo de Conta
+        </label>
+
+        <select
+          [(ngModel)]="role"
+          class="w-full p-4 rounded-xl bg-white/10 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+        >
+          <option value="USER" class="text-black">
+            Usuário
+          </option>
+
+          <option value="ADMIN" class="text-black">
+            Admin
+          </option>
+
+        </select>
+
+      </div>
+
+      <button
+        (click)="register()"
+        class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-4 rounded-xl transition duration-300 shadow-lg hover:scale-[1.02]"
+      >
+        Criar Conta
+      </button>
+
+    </div>
+
+    <div class="mt-8 text-center">
+
+      <p class="text-gray-400 text-sm">
+        Já possui conta?
+
+        <a
+          routerLink="/"
+          class="text-green-400 hover:text-green-300 hover:underline ml-1"
+        >
+          Entrar
+        </a>
+
+      </p>
+
+    </div>
 
   </div>
 

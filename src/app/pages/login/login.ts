@@ -15,19 +15,21 @@ export class Login implements OnInit {
   password = '';
 
   ngOnInit() {
-  if (localStorage.getItem('token')) {
-    this.router.navigate(['/home']);
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['/home']);
+    }
   }
-}
 
-  constructor(private auth: Auth, private router: Router) {}
+  constructor(private auth: Auth, private router: Router) { }
 
   login() {
     this.auth.login(this.username, this.password).subscribe({
       next: (res) => {
         this.auth.salvarToken(res.access_token);
-        this.router.navigate(['/home']);
-        }
-      });
-    }
+        this.router.navigate(['/home']).then(() => {
+          window.dispatchEvent(new Event('resize'));
+        });
+      }
+    });
+  }
 }

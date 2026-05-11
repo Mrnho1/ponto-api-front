@@ -4,7 +4,8 @@
 
 <div
   class="bg-gray-100 min-h-screen transition-all duration-300"
-  [class.ml-64]="mostrarNavbar()"
+  [class.ml-64]="mostrarNavbar() && sidebarAberta"
+  [class.ml-20]="mostrarNavbar() && !sidebarAberta"
 >
 
   <router-outlet></router-outlet>
